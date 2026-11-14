@@ -1,8 +1,8 @@
-
+import {notFound} from "next/navigation";
 
 const NewsPage = () => {
   return (
-    <div>page</div>
+    <div>{notFound()}</div>
   )
 }
 
