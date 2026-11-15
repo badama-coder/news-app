@@ -41,9 +41,9 @@ export const ArticleCard = (props:ArticleCardType) => {
                 <div className="text-[11px] text-[#78716C]">{date}</div>
               </div>
             </div>
-            <div className="flex justify-center items-center bg-[#FFF7ED] rounded-full p-2">
-              <ArrowUpRight className="w-5 h-5 text-[#C44724]" />
-            </div>
+            <button type="button" className="flex justify-center items-center bg-[#FFF7ED] rounded-full p-2 group-hover:bg-[#C44724] transition-colors duration-200">
+              <ArrowUpRight className="w-5 h-5 text-[#C44724] group-hover:text-white" />
+            </button>
           </footer>
         </div>
       </div>

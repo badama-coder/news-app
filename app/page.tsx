@@ -10,7 +10,7 @@ export const GenerateMetadata: Metadata = {
     siteName: "The Daily",
     title: "The Daily — A fresh perspective",
     description: "A little curiosity goes a long way. Explore 20 sample stories about design, technology, culture, and the world around us.",
-    images: firstArticle ? [{ url: firstArticle.image, alt: firstArticle.imageAlt }] : [],
+    images: [{ url: firstArticle.image, alt: firstArticle.imageAlt }]
   },
 };
 
