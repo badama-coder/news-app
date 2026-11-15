@@ -10,9 +10,9 @@ export const generateStaticParams = () => {
     return data.map((article) => ({
         slug: article.slug,
     }));
-}
+};
 
-export async function generateMetadata({params}: Props): Promise<Metadata> {
+export async function generateMetadata({params}: ArticleDetailPageType): Promise<Metadata> {
     const {slug} = await params;
     const foundArticle = data.find((article) => article.slug === slug);
 
