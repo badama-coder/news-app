@@ -47,10 +47,14 @@ const ArticleDetailPage = async ({params}:ArticleDetailPageType) => {
     const related = data.filter((element)=> element.category === foundArticle.category && element.id !== foundArticle.id)
 
     return <div className="w-screen px-5 sm:px-8 lg:px-16 bg-[#FAF9F6]">
-        <header className="flex items-center gap-3 text-xs text-[#22241F] border-b border-[#E2E2DA] py-5">
-            <span className="font-bold">←  All stories</span>
-            <span className="text-[#65675F]">/</span>
-            <span className="text-[#65675F]">{foundArticle.category}</span>
+        <header className="flex items-center justify-between text-xs text-[#22241F] border-b border-[#E2E2DA] py-5">
+            <div className="flex gap-3">
+                <Link href={`/`}><span className="font-bold hover:text-[#C44724]">←  All stories</span></Link>
+                
+                <span className="text-[#65675F]">/</span>
+                <span className="text-[#65675F]">{foundArticle.category}</span>
+            </div>
+            <div className="text-[#65675F] text-xs">THE DAILY EDIT</div>
         </header>
         <div className="flex flex-col gap-5 lg:px-20">
             <div className="flex items-center gap-3 mt-12">
@@ -100,7 +104,9 @@ const ArticleDetailPage = async ({params}:ArticleDetailPageType) => {
                     <div className="text-[#22241F] text-lg font-semibold">A little more curiosity?</div>
                     <div className="text-sm text-[#65675F] ">Your next good read is just around the corner.</div>
                 </div>
-                <button type="button" className="text-white text-xs hover:bg-[#C44724] bg-[#22241F] text-sm px-4 rounded-full">All stories  ↗</button>
+                <Link href={`/`}><button type="button" className="text-white text-xs hover:bg-[#C44724] cursor-pointer bg-[#22241F] px-6 py-3 rounded-full">All stories  ↗</button>
+                </Link>
+                
             </div>
         </div>
         <div className="flex flex-col py-10 border-t border-[#E2E2DA]">

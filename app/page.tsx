@@ -2,6 +2,7 @@ import{ ArticleCard } from '@/components/ArticleCard';
 import data from "@/data/news.json";
 import {Metadata} from "next";
 
+
 const firstArticle = data[0];
 
 export const GenerateMetadata: Metadata = {
@@ -16,11 +17,13 @@ export const GenerateMetadata: Metadata = {
 
 
 const Home = () => {
+
   return (
     <div className="w-screen py-8 px-8 bg-[#FAF9F6]">
       <header>
         <h1 className="text-[10px] text-[#C44724] font-bold mb-2">STAY CURIOUS</h1>
-        <h2 className="text-4xl font-bold mb-6">The latest stories.</h2>
+        <h2 className="text-4xl font-bold">The latest stories.</h2>
+        <h3 className="text-[#65675F] text-xs w-full flex justify-end mb-6">Big ideas. Fresh voices. Worth your time.</h3>
       </header>
       <div className="flex flex-wrap gap-1 py-4 border-t border-b border-[#E2E2DA] items-baseline text-xs text-[#65675F]">
         <div className="bg-[#22241F] text-white px-3 py-[10px] rounded-[4px]">All stories</div>

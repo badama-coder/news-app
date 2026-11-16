@@ -11,6 +11,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html
       lang="en"
+      className="scroll-smooth"
     >
       <body>{children}
       <footer className="h-[133px] w-full border-t border-[#E2E2DA] flex items-center px-8 justify-between bg-[#FAF9F6]">
@@ -18,7 +19,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <div className="text-3xl font-semibold mb-1">the daily <span className="text-[#C44724]">▧</span></div>
           <div className="text-xs text-[#65675F]">A fresh perspective. Every day.</div>
         </div>
-        <button type="button" className="text-[#22241F] text-xs">Back to top ↑</button>
+        <a href="#top"><button type="button" className="text-[#22241F] text-xs hover:text-[#C44724] cursor-pointer">Back to top ↑</button></a>
       </footer>
       </body>
       

@@ -19,9 +19,9 @@ export const ArticleCard = (props:ArticleCardType) => {
   const {title, description, image, imageAlt, category, author, date, content, slug, id} = props;
     return (
     <Link href={`/news/${slug}`} className="group block">
-      <div className="w-full rounded-3xl bg-white shadow-sm border border-slate-100 overflow-hidden">
+      <div className="w-full rounded-2xl bg-white shadow-sm  border border-slate-100 overflow-hidden transition hover:-translate-y-1 hover:border hover:border-[#C44724] hover:shadow-xl duration-400">
         <div className="relative h-48 w-full overflow-hidden">
-          <img src={image} alt={imageAlt} className="h-full w-full object-cover " />
+          <img src={image} alt={imageAlt} className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-400" />
           <div className="absolute top-4 left-4 bg-[#ECFDF5] text-[#065F46] text-[10px] py-1.5 px-3 rounded-full uppercase font-bold">{category}</div>
           <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-white text-xs">
             <Clock className="w-4 h-4 text-white" />
@@ -30,7 +30,7 @@ export const ArticleCard = (props:ArticleCardType) => {
         </div>
         <div className="p-6 flex flex-col h-[263px] justify-between">
           <div>
-            <div className="text-xl font-bold text-gray-900 mb-3">{title}</div>
+            <div className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#C44724]">{title}</div>
           <div className="text-sm text-[#57534E] font-light">{description}</div>
           </div>
           <footer className="flex justify-between items-baseline border-t border-[#E2E2DA]">
