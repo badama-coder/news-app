@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {Clock} from "lucide-react";
 import {ArrowUpRight} from "lucide-react";
+import { categoryColors } from "@/lib/category-colors";
 
 type ArticleCardType = {
     id: number;
@@ -17,12 +18,16 @@ type ArticleCardType = {
 
 export const ArticleCard = (props:ArticleCardType) => {
   const {title, description, image, imageAlt, category, author, date, content, slug, id} = props;
+
+  const colorClasses = categoryColors[category] ?? "bg-slate-50 text-slate-700 ring-slate-200";
+  const initials = author.split(" ").map((name)=> name[0]).join("");
+
     return (
     <Link href={`/news/${slug}`} className="group block">
       <div className="w-full rounded-2xl bg-white shadow-sm  border border-slate-100 overflow-hidden transition hover:-translate-y-1 hover:border hover:border-[#C44724] hover:shadow-xl duration-400">
         <div className="relative h-48 w-full overflow-hidden">
           <img src={image} alt={imageAlt} className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-400" />
-          <div className="absolute top-4 left-4 bg-[#ECFDF5] text-[#065F46] text-[10px] py-1.5 px-3 rounded-full uppercase font-bold">{category}</div>
+          <div className={`absolute top-4 left-4 text-[10px] ring-1 ${colorClasses} py-1.5 px-3 rounded-full uppercase font-bold`}>{category}</div>
           <div className="absolute bottom-4 left-4 flex items-center gap-1.5 text-white text-xs">
             <Clock className="w-4 h-4 text-white" />
             <span>1 min read</span>
@@ -35,7 +40,7 @@ export const ArticleCard = (props:ArticleCardType) => {
           </div>
           <footer className="flex justify-between items-baseline border-t border-[#E2E2DA]">
             <div className="flex gap-3 items-center mt-4 ">
-              <div className="flex justify-center items-center bg-[#FFF7ED] rounded-full size-8">AM</div>
+              <div className={`flex justify-center items-center ring-1 ${colorClasses} rounded-full size-10 font-bold text-xs`}>{initials}</div>
               <div>
                 <div className="text-xs font-bold mb-1">{author}</div>
                 <div className="text-[11px] text-[#78716C]">{date}</div>

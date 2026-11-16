@@ -1,7 +1,7 @@
 import{ ArticleCard } from '@/components/ArticleCard';
 import data from "@/data/news.json";
 import {Metadata} from "next";
-
+import { ArticleFeed } from '@/components/ArticleFeed';
 
 const firstArticle = data[0];
 
@@ -25,38 +25,10 @@ const Home = () => {
         <h2 className="text-4xl font-bold">The latest stories.</h2>
         <h3 className="text-[#65675F] text-xs w-full flex justify-end mb-6">Big ideas. Fresh voices. Worth your time.</h3>
       </header>
-      <div className="flex flex-wrap gap-1 py-4 border-t border-b border-[#E2E2DA] items-baseline text-xs text-[#65675F]">
-        <div className="bg-[#22241F] text-white px-3 py-[10px] rounded-[4px]">All stories</div>
-        <div className="px-3 py-[10px] rounded-[4px]">World</div>
-        <div className="px-3 py-[10px] rounded-[4px]">Technology</div>
-        <div className="px-3 py-[10px] rounded-[4px]">Culture</div>
-        <div className="px-3 py-[10px] rounded-[4px]">Travel</div>
-        <div className="px-3 py-[10px] rounded-[4px]">Design</div>
-        <div className="px-3 py-[10px] rounded-[4px]">Science</div>
-        <div className="px-3 py-[10px] rounded-[4px]">Business</div>
-      </div>
-      <div className="text-xs text-[#65675F] py-[20px]">20 stories to explore</div>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8">
-        {data.map((article) => (
-          <ArticleCard
-            key={article.id}
-            id={article.id}
-            slug={article.slug}
-            title={article.title}
-            description={article.description}
-            image={article.image}
-            imageAlt={article.imageAlt}
-            category={article.category}
-            author={article.author}
-            date={article.date}
-            content={[
-              article.content[0],
-              article.content[1],
-              article.content[2]
-            ]}
-          />
-        ))}
-      </div>
+      
+      <ArticleFeed/>
+      
+      
     </div>
   )
 }

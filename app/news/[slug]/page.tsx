@@ -3,6 +3,7 @@ import {notFound} from "next/navigation";
 import {Metadata} from "next";
 import Link from "next/link";
 import { ArticleCard } from "@/components/ArticleCard";
+import { categoryColors } from "@/lib/category-colors";
 
 
 type ArticleDetailPageType = {
@@ -43,6 +44,8 @@ const ArticleDetailPage = async ({params}:ArticleDetailPageType) => {
     if (!foundArticle) {
         notFound();
     }
+    const colorClasses = categoryColors[foundArticle.category] ?? "bg-slate-50 text-slate-700 ring-slate-200";
+    const initials = foundArticle.author.split(" ").map((name)=> name[0]).join("");
 
     const related = data.filter((element)=> element.category === foundArticle.category && element.id !== foundArticle.id)
 
@@ -54,11 +57,11 @@ const ArticleDetailPage = async ({params}:ArticleDetailPageType) => {
                 <span className="text-[#65675F]">/</span>
                 <span className="text-[#65675F]">{foundArticle.category}</span>
             </div>
-            <div className="text-[#65675F] text-xs">THE DAILY EDIT</div>
+            <div className="text-[#65675F] text-[11px]">THE DAILY EDIT</div>
         </header>
         <div className="flex flex-col gap-5 lg:px-20">
             <div className="flex items-center gap-3 mt-12">
-               <span className="bg-[#ECFDF5] text-[#065F46] text-[10px] py-1.5 px-3 rounded-full uppercase font-bold border border-[#A7F3D0]">{foundArticle.category}</span>  
+               <div className={`text-[10px] ring-1 ${colorClasses} py-1.5 px-3 rounded-lg uppercase font-bold`}>{foundArticle.category}</div>  
                <span className="text-[#65675F] text-[11px]">—   THE DAILY</span>
             </div>
             <div className="text-4xl sm:text-5xl lg:8xl font-bold">{foundArticle.title}</div>
@@ -66,7 +69,7 @@ const ArticleDetailPage = async ({params}:ArticleDetailPageType) => {
         </div>
         <div className="flex justify-between items-center py-5 mb-5 border-t border-[#E2E2DA] lg:mx-20">
             <div className="flex gap-3 items-center font-bold">
-                <div className="flex justify-center items-center bg-[#FFF7ED] rounded-full p-3 text-sm">AM</div>
+                <div className={`flex justify-center items-center ring-1 ${colorClasses} rounded-xl size-10 font-bold text-xs`}>{initials}</div>
                 <div className="flex flex-col gap-1.5">
                     <div className="text-[#65675F] text-[10px]">WRITTEN BY</div>
                     <div className="text-sm">{foundArticle.author}</div>
@@ -93,9 +96,9 @@ const ArticleDetailPage = async ({params}:ArticleDetailPageType) => {
         <div className="flex flex-col gap-5 py-14 items-center gap-4 ">
             <div className="flex flex-col text-lg sm:xl bg-white rounded-3xl p-6 sm:p-10 gap-6 border border-[#E2E2DA] max-w-[768px]">
                 <div className="text-[#C44724] text-[10px] font-bold">━━ THE STORY</div>
-                <div className="text-lg sm:text-xl text-[#44403C]">{foundArticle.content[0]}</div>
-                <div className="text-lg sm:text-xl text-[#44403C]">{foundArticle.content[1]}</div>
-                <div className="text-lg sm:text-xl text-[#44403C]">{foundArticle.content[2]}</div>
+                <div className="text-lg sm:text-xl text-[#44403C] font-serif leading-10">{foundArticle.content[0]}</div>
+                <div className="text-lg sm:text-xl text-[#44403C] font-serif leading-10">{foundArticle.content[1]}</div>
+                <div className="text-lg sm:text-xl text-[#44403C] font-serif leading-10">{foundArticle.content[2]}</div>
                 <div className="text-[#C44724] flex w-full justify-center gap-2">•  •  •</div>
             </div>
             <div className="text-[#65675F] text-[11px]">Fictional sample story · The Daily learning edition</div>
