@@ -5,7 +5,7 @@ import { ArticleFeed } from '@/components/ArticleFeed';
 
 const firstArticle = data[0];
 
-export const GenerateMetadata: Metadata = {
+export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "The Daily",
